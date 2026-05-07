@@ -1,0 +1,239 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║           SOUP QUEUE CHAOS SIMULATOR — COMPLETE CHEAT SHEET               ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+THE GOLDEN RULE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  SOUP     = YOUR FREE CHOICE. Order any soup you like. It does not matter.
+  SIZE     = LOCKED per character. Must be exact.
+  SIDE     = LOCKED per character. Their personality demands it.
+  ACTION   = LOCKED per character. How they physically approach.
+  DIALOGUE = LOCKED per character. The tone they must use.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ORDER FORMAT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Type:   size  soup  side
+  Example: medium tomato bread
+  Example: large french onion crackers
+  Example: small bisque nothing
+
+  No comma needed. No punctuation needed. All lowercase preferred
+  but uppercase also works.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VALID MENU ITEMS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  SIZES (choose one):
+    small   medium   large
+
+  SOUPS (choose any — all are valid):
+    tomato          bisque          chicken noodle
+    minestrone      clam chowder    french onion
+    lentil          gazpacho
+
+  SIDES (character determines which one you must pick):
+    bread    crackers    croutons    butter    nothing
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CHARACTER WIN CONDITIONS — COMPLETE TABLE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+┌──────────┬────────┬──────────┬────────┬──────────┬───────────────────────┐
+│CHARACTER │ ACTION │ DIALOGUE │  SIZE  │   SIDE   │ SOUP (free choice)    │
+├──────────┼────────┼──────────┼────────┼──────────┼───────────────────────┤
+│ Jerry    │   2    │    4     │ medium │  bread   │ anything you want     │
+│ Elaine   │   5    │    5     │ large  │ crackers │ anything you want     │
+│ George   │   3    │    4     │ small  │ crackers │ anything you want     │
+│ Kramer   │   4    │    4     │ large  │  bread   │ anything you want     │
+│ Newman   │   5    │    1     │ large  │  bread   │ anything you want     │
+└──────────┴────────┴──────────┴────────┴──────────┴───────────────────────┘
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CHARACTER DETAILS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+JERRY (Light Blue)
+  Action   2 = "Shuffle with full compliance"
+  Dialogue 4 = "Rapid and efficient"
+  Size       = medium
+  Side       = bread
+  Why bread? Safe. Predictable. That is Jerry.
+  Why medium? Never too much, never too little.
+  Why rapid? The Soup Nazi respects zero small talk.
+
+ELAINE (Pink)
+  Action   5 = "Walk straight to counter"
+  Dialogue 5 = "Brisk and businesslike"
+  Size       = large
+  Side       = crackers
+  Why crackers? She refuses to take bread just because everyone else does.
+  Why large? She is not here to be modest.
+  Why brisk? The only tone the Soup Nazi tolerates from Elaine.
+
+GEORGE (Yellow)
+  Action   3 = "Rehearse order under his breath"
+  Dialogue 4 = "Whispering the order"
+  Size       = small
+  Side       = crackers
+  Why crackers? He saw Elaine do it once and has copied her ever since.
+  Why small? He is cheap and slightly ashamed of how much he wants this.
+  Why whispering? He has rehearsed it so many times it comes out quiet.
+
+KRAMER (Green)
+  Action   4 = "Enter backwards somehow"
+  Dialogue 4 = "Surprisingly soft and sincere"
+  Size       = large
+  Side       = bread
+  Why bread? He did not think about it. He just said bread.
+  Why large? Did you even have to ask?
+  Why soft and sincere? It stuns the Soup Nazi into compliance.
+
+NEWMAN (Purple)
+  Action   5 = "Announce himself formally"
+  Dialogue 1 = "Dramatic and operatic"
+  Size       = large
+  Side       = bread
+  Why bread? Newman always takes bread. He has asked about extra bread.
+             The answer was no. He takes bread anyway.
+  Why large? Newman does not do small. Newman does not do medium.
+  Why dramatic? Newman is the only one who wins by being MORE theatrical.
+                The Soup Nazi secretly respects someone who loves soup this much.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+COMPLETE ACTION LISTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+JERRY                              ELAINE
+  1. Step forward politely           1. Approach with confidence
+  2. Shuffle with full compliance *  2. Mimic the shuffle sarcastically
+  3. Nod and make eye contact        3. Fake a sneeze to stall
+  4. Stand at exact correct distance 4. Nudge person in front
+  5. Clear throat quietly            5. Walk straight to counter *
+
+GEORGE                             KRAMER
+  1. Inch forward pretending not to  1. Burst through the door dramatically
+  2. Ask a clarifying question first 2. Slide up sideways
+  3. Rehearse order under his breath*3. Lean on Newman for support
+  4. Freeze and stare blankly        4. Enter backwards somehow *
+  5. Trip approaching the counter    5. Stand exactly where he should not
+
+NEWMAN
+  1. Waddle forward with great purpose
+  2. Edge sideways like a chess piece
+  3. Bow slightly before approaching
+  4. Signal with a knowing wink
+  5. Announce himself formally *
+
+  * = correct action for that character
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+COMPLETE DIALOGUE LISTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+JERRY                              ELAINE
+  1. Casual and friendly             1. Loud and rude
+  2. Overly formal                   2. Sweetly sarcastic
+  3. Bemused and self-aware          3. Oblivious to all rules
+  4. Rapid and efficient *           4. Apologetically nervous
+  5. Quiet mumble                    5. Brisk and businesslike *
+
+GEORGE                             KRAMER
+  1. Paranoid and defensive          1. Rapid stream of consciousness
+  2. Incoherently rambling           2. Confident but entirely wrong
+  3. Lying about qualifications      3. Referencing an unrelated scheme
+  4. Whispering the order *          4. Surprisingly soft and sincere *
+  5. Accidentally shouting           5. Pure sound effects and gestures
+
+NEWMAN
+  1. Dramatic and operatic *
+  2. Whimpering with anticipation
+  3. Barely contained excitement
+  4. Pretending this is completely normal
+  5. Reciting a prepared speech
+
+  * = correct dialogue for that character
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+WARNING AND BAN SYSTEM
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  1 mistake  = WARNING #1   (1 red dot next to name in queue)
+  2 mistakes = WARNING #2   (2 red dots)
+  3 mistakes = BANNED       (removed from queue, no soup, ever)
+
+  What causes a warning:
+    - Wrong action number
+    - Wrong dialogue number
+    - Wrong size for that character
+    - Wrong side for that character
+    - Order typed so fast it cannot be read
+    - Unknown soup name (not on the menu)
+    - Taking longer than 25 seconds
+
+  What DOES NOT cause a warning:
+    - Ordering any valid soup (tomato, bisque, etc. — all fine)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SCORING SYSTEM
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Soup granted (base)         +100 pts
+  Speed bonus (per sec saved) +2 pts per second under 25s
+  Maximum possible per turn   +148 pts (1 second remaining)
+  Wrong action                -10 pts
+  Wrong dialogue              -10 pts
+  Wrong size                  -10 pts
+  Wrong side                  -10 pts
+  Unknown soup                -10 pts
+  Order unreadable            -15 pts
+  Timeout (over 25 seconds)   -20 pts
+  Being banned (extra)        -20 pts on top of the warning penalty
+
+  Perfect game (all 5 soup, fast orders)  = ~700 pts
+  Disaster game (everyone banned)         = -325 pts or worse
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ALL CONTROLS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  TITLE SCREEN
+    Click  START GAME       Begin normal game
+    Click  CHAOS MODE       Autoplay comedy mode
+    Click  REVENGE MODE     Elaine's revenge autoplay
+    Click  QUIT             Exit
+
+  PREP SCREEN (15 seconds)
+    ENTER                   Step to counter early
+    Wait                    Timer moves you forward automatically
+
+  ACTION / DIALOGUE SCREENS
+    Click button 1-5        Select your choice
+
+  ORDER SCREEN (25 seconds)
+    Type                    Write your order
+    Backspace               Delete last character
+    ENTER                   Submit order
+
+  RESULT SCREEN
+    Click CONTINUE          Move to next character
+
+  AUTOPLAY SCREENS (Chaos / Revenge)
+    ENTER or Click NEXT     Advance one line
+    Click SKIP ALL          Jump to end
+    S                       Cycle speed: slow / normal / fast
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+INSTANT REFERENCE CARD
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  CHARACTER   ACT  DIAL  SIZE    SIDE      SOUP
+  Jerry        2    4    medium  bread     ANY
+  Elaine       5    5    large   crackers  ANY
+  George       3    4    small   crackers  ANY
+  Kramer       4    4    large   bread     ANY
+  Newman       5    1    large   bread     ANY

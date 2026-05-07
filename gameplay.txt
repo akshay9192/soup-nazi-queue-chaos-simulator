@@ -1,0 +1,199 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║              SOUP QUEUE CHAOS SIMULATOR — GAMEPLAY GUIDE                   ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+OVERVIEW
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+You are managing the soup queue at the most feared soup shop in New York.
+The Soup Nazi has strict rules about HOW you order — not what soup you pick.
+Five Seinfeld characters take turns at the counter. Each one has a specific
+way they must approach, a specific tone they must use, a required size, and
+a required side. Get all four right and they get soup. Get any wrong and they
+get a warning. Three warnings and they are banned forever.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+THE CORE CONCEPT — WHAT THE SOUP NAZI ACTUALLY JUDGES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+The Soup Nazi does not care which soup you order. He cares how you order it.
+
+  SOUP     → Free choice. Any of the 8 soups on the menu works.
+             Jerry can get tomato. Or bisque. Or french onion.
+             The soup is acknowledged on the result screen but never judged.
+
+  SIZE     → Locked. Each character has a size that fits their personality.
+             Order the wrong size and you get a warning.
+
+  SIDE     → Locked. Each character has a personality-driven side.
+             Newman takes bread. Elaine takes crackers. George copies Elaine.
+             Order the wrong side and you get a warning.
+
+  ACTION   → Locked. How the character physically approaches the counter.
+             There is one correct approach per character.
+             Use the wrong approach and you get a warning.
+
+  DIALOGUE → Locked. The tone of voice.
+             There is one correct tone per character.
+             Use the wrong tone and you get a warning.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SCREEN BY SCREEN WALKTHROUGH
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SCREEN 1 — TITLE SCREEN
+  Three buttons: Start Game, Chaos Mode, Revenge Mode.
+  Click Start Game to begin.
+  The queue of 5 characters is waiting. You choose who goes first.
+
+SCREEN 2 — CHARACTER SELECT
+  Five coloured cards appear. Each card shows the character's name and
+  a one-line bio. Click any card to play that character's turn.
+  You choose the order you tackle them in. There is no fixed sequence.
+
+SCREEN 3 — PREP SCREEN (15 seconds)
+  Before the character reaches the counter, you get 15 seconds to study
+  the full menu displayed on the right panel. The Soup Nazi shouts his
+  warning. The countdown clock ticks in the top right corner.
+  No typing happens here. Just read. Decide. Press ENTER when ready
+  or wait for the timer to expire automatically.
+  The screen tells you the order format and reminds you:
+    - Soup is your free choice
+    - Size and side must match this character
+
+SCREEN 4 — ACTION SELECT
+  Five buttons appear, numbered 1 to 5. These are the ways the character
+  can physically approach the counter. Only one is correct for each
+  character. Click your choice. A log line appears at the bottom of the
+  screen confirming your pick.
+
+SCREEN 5 — DIALOGUE SELECT
+  Five buttons appear, numbered 1 to 5. These are the tones of voice
+  the character can use. Only one is correct for each character.
+  Click your choice.
+
+SCREEN 6 — ORDER SCREEN (25 seconds)
+  An empty green input box appears in the centre of the screen.
+  The right panel still shows the full menu for reference.
+  Type your order in the format:   size  soup  side
+  Example:  medium tomato bread
+  Example:  large french onion crackers
+  As you type, a live reading appears below the box showing what
+  the game has understood so far. When it shows the right size and side
+  highlighted in green on the menu panel you know it has read correctly.
+  Press ENTER to submit. You have 25 seconds.
+
+SCREEN 7 — RESULT SCREEN
+  The full screen shows the outcome:
+
+  SOUP!          → Green header. Character receives soup. Points awarded.
+  WARNING #X/3   → Orange header. One mistake. Explanation shown.
+  BANNED!        → Red header. Third mistake. Character removed from queue.
+
+  The screen always shows:
+    - What the Soup Nazi said (exact quote)
+    - Why the decision was made (what was wrong or right)
+    - Which soup the character ordered (acknowledged, never judged)
+    - Points gained or lost this turn
+    - Running total score
+
+  Click CONTINUE to return to the character select screen.
+
+SCREEN 8 — BACK TO CHARACTER SELECT
+  The queue on the left panel updates. Served characters show a green tick.
+  Banned characters show a red X. Remaining characters are still available.
+  Play continues until every character has either received soup or been banned.
+
+SCREEN 9 — END SCREEN
+  Shows final score, total soups given, total bans issued.
+  Click PLAY AGAIN to restart or QUIT to exit.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+THE THREE-PANEL LAYOUT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+The game window is divided into three columns:
+
+  LEFT PANEL — The Queue
+    Shows all five characters in order. The current character has an
+    arrow next to their name. Warning pips (red dots) show how many
+    mistakes each character has made. Served characters show green ticks.
+    Banned characters show red X marks. Your score is at the bottom.
+
+  CENTRE PANEL — Main Action
+    This is where everything happens. The active screen, buttons, input
+    box, result messages, and dialogue log all appear here.
+    The dialogue log at the bottom records everything the Soup Nazi
+    has said and everything that has happened this session.
+
+  RIGHT PANEL — The Menu
+    Always visible. Shows all valid sizes, all valid soups, and all
+    valid sides. On the order screen, the size and side you have typed
+    highlight in green to confirm the game has read them correctly.
+    Soup items never highlight because soup is always a free choice.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+THE DIALOGUE LOG
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+The box at the bottom of the centre panel is the dialogue log.
+It records every event in the session. Colour coding:
+
+  Yellow  → Soup Nazi speaking
+  Green   → Soup granted
+  Orange  → Warning issued
+  Red     → Character banned or "No Soup" line
+  Grey    → Narrative event or character quip
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+AUTOPLAY MODES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+CHAOS MODE
+  Accessible from the title screen. All five characters enter at once.
+  Nobody follows the rules. Everyone talks over each other. Everyone
+  eventually gets banned. The script plays out line by line.
+  Press ENTER or click NEXT to advance each line.
+  Press S to cycle the speed between slow, normal, and fast.
+  19 lines of escalating comedy ending with the Soup Nazi moving to Argentina.
+
+REVENGE MODE
+  Accessible from the title screen. Elaine returns with the Soup Nazi's
+  complete recipe book. A 12-line scripted confrontation plays out.
+  Press ENTER or click NEXT to advance each line.
+  Ends with Elaine winning and the Soup Nazi packing his ladle.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TIPS FOR WINNING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Use the prep screen to recall the character's required size and side.
+   The menu is right there. You have 15 seconds. Use them.
+
+2. Pick any soup you enjoy. The soup does not matter at all.
+   Focus entirely on size and side.
+
+3. Know the action and dialogue numbers before you click start.
+   The cheat sheet has every character's correct numbers.
+
+4. Type slowly and clearly on the order screen. You have 25 seconds.
+   Watch the live reading below the box. When it turns green you are correct.
+
+5. If you get a warning, the result screen tells you exactly what was wrong.
+   Read it carefully before the next attempt.
+
+6. Newman is the most counterintuitive character. He wins by being MORE
+   dramatic, not less. Dialogue 1 is the loudest option. That is correct.
+
+7. George is easy on timing but easy to confuse. He whispers (dialogue 4)
+   and takes small. The cheap small size trips people up.
+
+8. Elaine has the hardest combination to remember because both her correct
+   choices are the highest numbers. Action 5, Dialogue 5.

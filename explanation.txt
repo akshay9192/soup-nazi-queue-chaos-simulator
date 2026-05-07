@@ -1,0 +1,261 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║           SOUP QUEUE CHAOS SIMULATOR — CODE EXPLANATION                    ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FILE STRUCTURE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  main.py          Entry point and entire pygame UI layer
+  characters.py    All character data and rules definitions
+  engine.py        All game logic and order evaluation
+  dialogue.py      All text strings, Soup Nazi lines, and autoplay scripts
+  music.py         Procedural music generator and pygame mixer startup
+  requirements.txt Dependency list (pygame 2.5.2 only)
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+characters.py
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Contains two dataclasses and one factory function.
+
+  SOUPS, SIDES, SIZES
+    Module-level lists of all valid menu items. These are imported by
+    engine.py for validation and by main.py for the menu panel display.
+
+  Rules dataclass
+    Stores the four things the Soup Nazi actually checks per character:
+      action    (int)   — index into the character's actions list
+      dialogue  (int)   — index into the character's dialogues list
+      size      (str)   — required size string
+      side      (str)   — required side string
+      seconds   (float) — typing time limit (25.0 for all characters)
+    Note: soup is deliberately absent from Rules. Any soup is valid.
+
+  Character dataclass
+    Stores everything about one character:
+      name, color, bio       — display information
+      side_note, size_note   — personality explanations shown on result screen
+      actions (list of 5)    — the five possible approach buttons
+      dialogues (list of 5)  — the five possible tone buttons
+      rules (Rules)          — the locked win conditions
+      warnings (int)         — starts at 0, max 3 before banned
+      banned (bool)          — True after 3 warnings
+      got_soup (bool)        — True after successful order
+
+    add_warning() method increments warnings and sets banned=True at 3.
+
+  make_characters()
+    Returns a fresh list of 5 Character objects every time it is called.
+    Called at game start and when autoplay modes reset the queue.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+engine.py
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Contains the parse_order() function and the Engine class.
+Has zero pygame dependencies. Pure logic.
+
+  parse_order(raw: str) -> dict | None
+    Converts a free-text order string into a structured dict.
+
+    Algorithm:
+      1. Lowercase and strip commas/dots (forgiving of punctuation)
+      2. Split into words
+      3. Match first word against SIZES list
+      4. Match last 1-2 words against SIDES list (longest match first,
+         so "clam chowder" is found before "chowder")
+      5. Remaining middle words are treated as the soup name
+      6. Try exact match against SOUPS list
+      7. Try fuzzy match: find soup where all typed words appear in it
+      8. If soup is unrecognised, return dict with unknown_soup=True
+         so the engine can give a specific "not on my menu" message
+      9. Return None only if size or side cannot be found
+
+    This approach means multi-word soups like "chicken noodle",
+    "clam chowder", and "french onion" all parse correctly even if
+    partially typed, and the player is never punished for soup choice.
+
+  Engine class
+    mood (int 0-100)
+      The Soup Nazi's mood. Starts at 60 (Neutral). Rises after perfect
+      orders (+10). Falls after mistakes (-6 to -10). Falls after bans (-3).
+      Displayed as a colour-coded bar across the top of the centre panel.
+
+    mood_label() and mood_color()
+      Convert the mood integer to a display string and RGB colour.
+      Thresholds: 0-20 FURIOUS (red), 21-45 Annoyed (orange),
+                  46-65 Neutral (yellow), 66-85 Pleased (green),
+                  86-100 Ecstatic (cyan).
+
+    evaluate(char, raw, action, dialogue, elapsed) -> dict
+      The main evaluation function. Called once per order submission.
+      Checks in this order:
+        1. Can the order string be parsed? No -> unreadable warning
+        2. Is the soup unknown? Yes -> "not on my menu" warning
+        3. Has the time limit been exceeded? Yes -> timeout warning
+        4. Is the action index correct? No -> approach warning
+        5. Is the dialogue index correct? No -> tone warning
+        6. Is the size correct? No -> size warning with size_note
+        7. Is the side correct? No -> side warning with side_note
+        8. All checks passed -> soup granted with speed bonus
+      Returns a dict: outcome, message, points, detail, soup_note.
+
+    _warn(char, message, detail, points, soup_note) -> dict
+      Called by every failure path. Calls char.add_warning() to
+      increment the warning counter and check for ban. If banned,
+      replaces the message with a random ban line and deducts 20
+      additional points. Always shifts mood down by 3.
+
+    Speed bonus calculation:
+      speed_bonus = max(0, int((25.0 - elapsed) * 2))
+      At 1 second elapsed: (25-1)*2 = 48 bonus points
+      At 10 seconds elapsed: (25-10)*2 = 30 bonus points
+      At 24 seconds elapsed: (25-24)*2 = 2 bonus points
+      Base is always 100, so total ranges from 100 to 148.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+dialogue.py
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+A flat file of all strings in the game. No logic. No pygame.
+Separating strings from logic means humour can be edited without
+touching game mechanics.
+
+  NAZI_OK      List of soup-granted responses. Randomly selected.
+  NAZI_WARN    List of warning responses. Randomly selected.
+  NAZI_BAN     List of ban responses. Randomly selected.
+  CHAR_QUIPS   Dict mapping character name to list of quip strings.
+               Used in prep screen for flavour text.
+  REVENGE_LINES  Scripted 12-line Elaine confrontation sequence.
+  CHAOS_LINES    Scripted 19-line chaos mode sequence.
+
+  Helper functions: nazi_warn(), nazi_ok(), nazi_ban(), char_quip(name)
+  Each picks a random item from the appropriate list.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+music.py
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Generates and plays a looping slap-bass WAV using only Python standard
+library (math, wave, struct). No numpy. No external audio files.
+
+  _make_wav(path, duration=4.0)
+    Builds a Seinfeld-style E-minor bass riff using sine wave synthesis.
+    Each note uses an exponential decay envelope (plucked-string model).
+    A second harmonic at 2x frequency adds warmth.
+    Output is 22050 Hz, 16-bit mono PCM WAV.
+    The riff is defined as a list of (frequency_hz, beats) tuples.
+    Notes: E2(82.4), G2(98.0), A2(110.0), B2(123.5) approximate the
+    iconic Seinfeld theme in E minor at ~120 BPM.
+
+  start(pygame)
+    Initialises pygame.mixer, generates the WAV to a temp file if it
+    does not already exist, loads it, and plays it on infinite loop.
+    Wrapped in try/except so audio failure never crashes the game.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+main.py
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+All pygame code lives here. One run() function containing nested screen
+functions and a main game loop at the bottom.
+
+  Colour constants (module level)
+    BG, PANEL, GOLD, WHITE, CREAM, GREY, DGREY, RED, DRED,
+    GREEN, YELLOW, ORANGE, LREY defined as RGB tuples.
+
+  Layout constants
+    W=1100, H=720 screen dimensions.
+    CC_X=250, CC_W=600 centre column.
+    RC_X=860, RC_W=230 right column.
+    LC_X=10,  LC_W=230 left column.
+
+  run() function
+    Initialises pygame, builds font cache (h1/h2/h3/body/small),
+    starts music, then defines all helper functions and screen functions
+    as nested closures so they share the screen, clock, and font objects
+    without global variables.
+
+  Helper functions (inside run):
+    txt()         Renders and blits text, returns new y position.
+    box()         Draws a rounded rectangle with border.
+    btn()         Draws a button with hover state, returns rect.
+    hovered()     Returns True if mouse is over a rect.
+    clicked()     Returns True if a left-click event hit a rect.
+    draw_mood()   Renders the mood bar across the top of centre panel.
+    draw_queue_panel()  Renders the left column with queue and score.
+    draw_log()    Renders the dialogue log at the bottom of centre panel.
+                  Most recent lines at the bottom. Colour-coded by type.
+    draw_menu_panel()   Renders the right column menu reference.
+                  Size and side highlight green when matched in order input.
+                  Soup items never highlight (soup is free choice).
+
+  Screen functions (inside run):
+    screen_title()       Title screen with three clickable buttons.
+    screen_char_select() Five character cards. Returns chosen Character.
+    screen_prep()        15-second countdown. Menu visible. No typing.
+                         Returns when ENTER pressed or timer expires.
+    screen_action()      Five action buttons. Returns 0-based index.
+    screen_dialogue()    Five dialogue buttons. Returns 0-based index.
+    screen_order()       Text input with 25-second timer. Live parse
+                         preview highlights matched items on menu panel.
+                         Returns (order_string, elapsed_seconds).
+    screen_result()      Full-screen result with outcome, message,
+                         explanation, soup note, and points.
+    screen_autoplay()    Shared screen for both chaos and revenge modes.
+                         Steps through a list of strings line by line.
+    screen_end()         Final score screen. Play again or quit.
+
+  Main game loop (bottom of run):
+    Calls screen_title() to get mode choice.
+    For chaos/revenge: calls screen_autoplay() with appropriate script.
+    For normal game:
+      Creates make_characters() and Engine().
+      Loops while any character has not yet got soup or been banned.
+      Each iteration: char_select -> prep -> action -> dialogue -> order
+      -> engine.evaluate -> result -> check if done.
+      After all characters done: calls screen_end().
+
+  TEXTINPUT event
+    All typing uses pygame.TEXTINPUT events, not KEYDOWN unicode.
+    TEXTINPUT fires once per character on all platforms including Windows
+    and correctly handles keyboard layout differences.
+    KEYDOWN is only used for ENTER (submit) and BACKSPACE (delete).
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DATA FLOW SUMMARY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Player clicks character
+    -> Character object retrieved from make_characters() list
+
+  Player presses ENTER on prep screen
+    -> Nothing stored. Prep is read-only.
+
+  Player clicks action button (index 0-4)
+    -> Integer stored as chosen_action
+
+  Player clicks dialogue button (index 0-4)
+    -> Integer stored as chosen_dialogue
+
+  Player types order and presses ENTER
+    -> Raw string and elapsed float passed to engine.evaluate()
+
+  engine.evaluate() runs
+    -> parse_order() converts raw string to {size, soup, side} dict
+    -> Checks action, dialogue, size, side against char.rules
+    -> Returns result dict {outcome, message, points, detail, soup_note}
+
+  Result dict displayed on screen_result()
+    -> score updated
+    -> char.got_soup or char.banned set
+
+  Loop continues until all chars done
+    -> screen_end() shows final totals
