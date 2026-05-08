@@ -8,7 +8,7 @@
 ## What Is This
 
 You manage the queue at New York's most feared soup shop. The Soup Nazi
-judges every customer on HOW they order — their approach, their tone,
+judges every customer on HOW they order - their approach, their tone,
 their size, and their side. Get all four right and they get soup.
 Get any wrong and they get a warning. Three warnings means banned forever.
 
@@ -22,7 +22,7 @@ He cares how you pick it.
 
 | File | Purpose |
 |---|---|
-| `main.py` | Entry point — run this |
+| `main.py` | Entry point - run this |
 | `characters.py` | Character data and win conditions |
 | `engine.py` | Game logic and order evaluation |
 | `dialogue.py` | All dialogue strings and autoplay scripts |
@@ -101,11 +101,11 @@ Result → repeat
 
 ## Autoplay Modes
 
-**Chaos Mode** — All five characters storm the counter at once.
+**Chaos Mode** - All five characters storm the counter at once.
 Nobody follows the rules. Everyone gets banned. 19 lines of comedy.
 Press ENTER to advance each line.
 
-**Revenge Mode** — Elaine returns with the Soup Nazi's complete recipe book.
+**Revenge Mode** - Elaine returns with the Soup Nazi's complete recipe book.
 A 12-line scripted confrontation. Press ENTER to advance each line.
 
 ---
@@ -141,8 +141,8 @@ A 12-line scripted confrontation. Press ENTER to advance each line.
 ## Tips
 
 - Soup is free. Do not worry about it. Focus on size and side.
-- Newman is the exception — he wins by being MORE dramatic (dialogue 1).
+- Newman is the exception - he wins by being MORE dramatic (dialogue 1).
 - Use the 15-second prep screen to confirm the character's size and side.
 - The live reading on the order screen shows what the game understood.
   Watch for size and side to highlight green before pressing ENTER.
-- Read the result screen after a warning — it tells you exactly what was wrong.
+- Read the result screen after a warning - it tells you exactly what was wrong.
